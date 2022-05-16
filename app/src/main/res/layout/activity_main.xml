@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Feedback details to send to the developer"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/txName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User Name"
+        />
+    <EditText
+        android:id="@+id/txEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email@gmail.com"
+        android:layout_marginTop="10dp"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/spinner">
+    </Spinner>
+    <EditText
+        android:id="@+id/tvDes"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="description"
+        android:layout_marginTop="10dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ck"
+        android:text="would you like an email response?"
+        android:layout_marginTop="10dp"/>
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/btnSubmit"
+       android:text="send feedback"/>
+</LinearLayout>
