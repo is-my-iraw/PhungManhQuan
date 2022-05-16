@@ -19,9 +19,13 @@ public interface UserDAO {
     @Delete
     void Delete(User user);
 
-    @Query("select * from User")
+    @Query("select * from user")
     List<User> getUserAll();
 
-    @Query("select * from User where id = :id")
+    @Query("select * from user where id = :id")
     User getUser(int id);
+
+
+    @Query("SELECT Total('id')  FROM user")
+    Integer Total();
 }

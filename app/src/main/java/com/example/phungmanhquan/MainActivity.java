@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spinner = findViewById(R.id.spinner);
         btnSubmit = findViewById(R.id.btnSubmit);
         ck = findViewById(R.id.ck);
+        btnSubmit.setOnClickListener(this);
 
         String[] listGender = {"Gripe", "1", "2"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,  android.R.layout.simple_spinner_item, listGender);
@@ -53,27 +54,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (tvDes.getText().toString().isEmpty()){
             Toast.makeText(this, "please enter Description", Toast.LENGTH_LONG).show();
-            return;
         }
-        if (!ck.getText().toString().isEmpty()){
-            Toast.makeText(this, "checkbox", Toast.LENGTH_LONG).show();
 
-        }
         else {
             User user = new User();
             user.Name = txName.getText().toString();
             user.Email = txEmail.getText().toString();
-            user.Gender = gender;
             user.Description = tvDes.getText().toString();
+            user.Gender = gender;
             db.userDAO().Insert(user);
+            Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
+            Total();
         }
-        Total();
     }
 
     private void Total(){
-        User model = (User) db.userDAO().getUserAll();
-        Toast.makeText(this, "this" +model.id, Toast.LENGTH_LONG).show();
-
+        Integer model = db.userDAO().Total();
+        Toast.makeText(this, "this" + model, Toast.LENGTH_LONG).show();
     }
     @Override
     public void onClick(View view) {
